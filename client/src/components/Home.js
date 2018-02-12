@@ -22,7 +22,6 @@ class Home extends Component {
             await this.setState({error: err.message})
             return err.message
         }
-
     }
     render(){
         if(this.state.error){
