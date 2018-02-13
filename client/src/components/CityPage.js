@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Post from './Post'
+import PostList from './PostList'
 
 
 export default class CityPage extends Component {
@@ -16,24 +18,29 @@ export default class CityPage extends Component {
     getCity = async () => {
         try {
             const cityId = this.props.match.params.id
-            const response = await axios.get(`/api/cities/${cityId}/`)
-            this.setState({ city: response.data })
+            const response = await axios.get(`/api/cities/${cityId}/posts`)
+            this.setState({
+                city: response.data.city,
+                posts: response.data.posts
+            })
         }
         catch (err) {
             console.log(err)
         }
     }
 
-    getAllPosts = () => {
-    }
+    // getAllPosts = () => {
+    // }
 
 
     render() {
 
+
+
         return (
             <div>
                 <div>
-                    <img width="500" src={this.state.city.photo_url} alt={this.state.city.name}/>
+                    <img width="500" src={this.state.city.photo_url} alt={this.state.city.name} />
                 </div>
                 <div>
                     {this.state.city.name}
@@ -52,6 +59,9 @@ export default class CityPage extends Component {
                 </div>
                 <div>
                     <Link to="/"><button>Back to Cities</button></Link>
+                </div>
+                <div>
+                    <PostList posts={this.state.posts}/> 
                 </div>
             </div>
         )
