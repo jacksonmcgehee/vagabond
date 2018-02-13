@@ -55,13 +55,11 @@ input[type="text"] {
         background-color:#DDCA7E;
     }
 }
-
 select {
     height: 2rem;
     font-size: 18px;
     cursor:pointer;
 }
-
 textarea {
     font-size: .9rem;
     cursor:pointer;  
@@ -70,6 +68,3 @@ textarea {
     }
 }
 `
-
-
-;
