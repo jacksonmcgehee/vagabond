@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 import Post from './Post'
 import PostList from './PostList'
 
-
 export default class CityPage extends Component {
     state = {
         city: {},
-        posts: []
+        posts: [],
+        post: {}
     }
 
     componentWillMount = () => {
@@ -29,7 +29,25 @@ export default class CityPage extends Component {
         }
     }
 
-    // getAllPosts = () => {
+    deletePost = async (post) => {
+        try {
+            console.log("POST ID: ", post.id)
+            const cityId = this.props.match.params.id
+            const response = await axios.delete(`/api/cities/${cityId}/posts/${post.id}`)
+            this.setState({
+                posts: response.data
+            })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+    // handlePostChange = (event) => {
+    //     event.preventDefault()
+    //     const post = { ...this.state.post }
+    //     post[event.target.name] = event.target.value
+    //     this.setState({ post })
     // }
 
 
@@ -61,7 +79,10 @@ export default class CityPage extends Component {
                     <Link to="/"><button>Back to Cities</button></Link>
                 </div>
                 <div>
-                    <PostList posts={this.state.posts}/> 
+                    <PostList posts={this.state.posts}
+                    deletePost={this.deletePost}
+                    /> 
+  
                 </div>
             </div>
         )
