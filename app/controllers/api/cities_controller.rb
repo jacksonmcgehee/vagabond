@@ -18,9 +18,11 @@ class Api::CitiesController < ApplicationController
 
   end
 
-  # def destroy
+  def destroy
+    @city = City.find(params[:id]).destroy
 
-  # end
+    render status: :ok
+  end
 
   # def update
 
