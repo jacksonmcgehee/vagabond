@@ -32,7 +32,7 @@ class Home extends Component {
             return <div>{this.state.error}</div>
         }
         return(
-            <div className="home-container">
+            <div className="container">
                 {this.state.cities.map(city => (
                     <Link to={`/cities/${city.id}`}>
                         <div key={city.id} className="city-preview" >
