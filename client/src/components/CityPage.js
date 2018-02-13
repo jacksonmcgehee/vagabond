@@ -8,8 +8,19 @@ export default class CityPage extends Component {
         posts: []
     }
 
-    getCity = () => {
+    componentWillMount = () => {
+        this.getCity() 
+    }
 
+    getCity = async () => {
+        try {
+            const cityId = this.props.match.params.id
+            const response = await axios.get(`/api/cities/${cityId}`)
+            this.setState({city: response.data})
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
 
     getAllPosts = () => {
