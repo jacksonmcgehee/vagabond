@@ -16,7 +16,7 @@ export default class CityPage extends Component {
     getCity = async () => {
         try {
             const cityId = this.props.match.params.id
-            const response = await axios.get(`/api/cities/${cityId}`)
+            const response = await axios.get(`/api/cities/${cityId}/`)
             this.setState({ city: response.data })
         }
         catch (err) {
@@ -25,8 +25,8 @@ export default class CityPage extends Component {
     }
 
     getAllPosts = () => {
-
     }
+
 
     render() {
 

@@ -15,7 +15,7 @@ post = Post.create(user: user, city: city, title: 'Philips Arena', body: `The ar
 
 city = City.create(name: 'San Francisco', photo_url: 'https://images.unsplash.com/photo-1470723710355-95304d8aece4?ixlib=rb-0.3.5&s=a593b58c119168e3b1eefc1d5cf9acf1&auto=format&fit=crop&w=1350&q=80', summary: 'The City of Bays founded in 1521 by Jeans James', latitude:'33.7490', longitude: '84.3880', state:'California', country:'US', nickname:'City with The Red Bridge', population:'522,446', city_type:'Urban')
 post = Post.create(user: user, city: city, title: 'Alcatraz', body: 'This is where the movie The Rock was filmed.', post_photo:'https://pbs.twimg.com/media/CDEbI8JUgAEtUIS.jpg')
-post = Post.create(user: user, city: city, title: 'Alcatraz', body: 'This is where I am teaching.', post_photo:'http://payload377.cargocollective.com/1/3/122186/9852796/MR_150105_General-Assembly_0029_670.jpg')
+post = Post.create(user: user, city: city, title: 'General Assembly', body: 'This is where I am teaching.', post_photo:'http://payload377.cargocollective.com/1/3/122186/9852796/MR_150105_General-Assembly_0029_670.jpg')
 
 user = User.create(name: 'Tom', current_city: 'Orlando', description:'Hi, I am a professional golfer', user_photo: 'https://placeimg.com/200/300/people', gender: 'Male', relationship_status: 'married')
 city = City.create(name: 'Orlando', photo_url: 'https://images.unsplash.com/photo-1452717602770-b78d1b2115e1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=a4149f03474bf7486124d682a8e93e8a', summary: 'In the sunshine state home of Disney World', latitude: '28.5383', longitude: '81.3792', state: 'Florida', country: 'US', nickname: 'O-Town', population: '277,173', city_type: 'Urban')

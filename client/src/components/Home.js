@@ -10,12 +10,13 @@ class Home extends Component {
     componentWillMount(){
         this.fetchCities();
     }
+
     fetchCities = async () => {
         try {
-            const respond = await axios.get('/api/cities');
-            console.log('we have the response from the server and grabbed the data',respond)
-            await this.setState({cities: respond.data});
-            return respond.data;
+            const response = await axios.get('/api/cities');
+            console.log('we have the response from the server and grabbed the data',response)
+            await this.setState({cities: response.data});
+            return response.data;
         }
         catch (err) {
             console.log(err)
@@ -23,6 +24,9 @@ class Home extends Component {
             return err.message
         }
     }
+
+
+
     render(){
         if(this.state.error){
             return <div>{this.state.error}</div>
