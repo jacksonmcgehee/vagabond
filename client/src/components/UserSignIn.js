@@ -88,6 +88,10 @@ const SignUp = styled.button`
   opacity: 0.9;
   width: 14rem;
 `;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const FormWrappers = styled.div`
   display: flex;
@@ -95,7 +99,3 @@ const FormWrappers = styled.div`
   flex-direction: row;
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;

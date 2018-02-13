@@ -7,21 +7,26 @@ export default class CreateUser extends Component {
       <div>
       <FormContainer>
         <FormWrapper action="">
-          <h2>User Create Form</h2>
+          <h2>Create User</h2>
           Name <input type="text" placeholder="Name" required />
+          <hr/>
           Current City <input type="text" placeholder="Current City" required />
+          <hr/>
           Default Photo <input type="text" placeholder="Photo Link" required />
+          <hr/>
           Gender{" "}
           <select name="gender" id="">
             <option value="male">Male</option>
             <option value="Female">Female</option>
           </select>
+          <hr/>
           Relationship status{" "}
           <select name="relationship_status" id="">
             <option value="status">Single</option>
             <option value="status">Married</option>
             <option value="status">Divorced</option>
           </select>
+          <hr/>
           About Me{" "}
           <textarea
             type="textarea"
@@ -31,9 +36,17 @@ export default class CreateUser extends Component {
             required
             maxlength="120"
           />
-          {/* <input type="submit">Submit</input> */}
         </FormWrapper>
       </FormContainer>
+      <ButtonWrapper>
+          <a href="/">
+            <CancelBtn type="button">Cancel</CancelBtn>
+          </a>
+          <a href="/">
+            {" "}
+            <SignUp>Create</SignUp>
+          </a>
+        </ButtonWrapper>
       </div>
     );
   }
@@ -43,15 +56,16 @@ export default class CreateUser extends Component {
 const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  width: 12rem;
-
+  width: 26rem;
+  padding-top:2rem;
+cl
 input[type="text"] {
     border: 1px solid;
     padding: 1rem;
     text-align: center;
     margin: 1px;
     border-radius: 3px;
-    background-color: white;
+    background-color: #f1f1f1;
     cursor: pointer;
     &:hover{
         background-color:#DDCA7E;
@@ -66,14 +80,39 @@ textarea {
     font-size: .9rem;
     cursor:pointer;  
     &:hover{
-        background-color:#DDCA7E;
+        background-color:#f1f1f1;
     }
 }
 `
 
+const CancelBtn = styled.button`
+  padding: 14px 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 0.9;
+  width: 18em;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const SignUp = styled.button`
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  cursor: pointer;
+  opacity: 0.9;
+  width: 14rem;
+`;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const FormContainer = styled.div`
 display:flex;
-flex-direction: column;
+flex-direction: row;
 justify-content:center;
 
 `
+
