@@ -21,9 +21,8 @@ class App extends Component {
             <Route exact path="/cities/:id" component={CityPage} />
             <Route exact path="/signin" component={UserSign} />
             <Route exact path="/createuser" component={CreateUser} />
-
             {/* <Route exact path="/cities/:id" component={CityPage} /> */}
-
+            {/* <Route exact path="/jeansjams-admin" component={AdminPage} /> */}
           </Switch>
         </Router>
       </div>
