@@ -37,10 +37,12 @@ class Home extends Component {
                     <h1>Jeans Jams: Travel Edition</h1>
                     <h2>All Cities</h2>
                     {this.state.cities.map(city => (
-                        <div key={city.id}>
-                            <Link to={`/cities/${city.id}`}>{city.name}</Link>
-                            <div><img width="200" src={city.photo_url} alt="picture of city" /></div>
+                    <Link to={`/cities/${city.id}`}>
+                        <div key={city.id} className="city-preview" >
+                            <img src={city.photo_url} alt="picture of city" className="city-img" />
+                            <div className="city-name" >{city.name}</div>
                         </div>
+                    </Link>
                     ))}
                 </div>
             </Background>

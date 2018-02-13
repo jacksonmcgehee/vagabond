@@ -19,7 +19,6 @@ export default class NavBar extends Component {
   }
 }
 
-
 const NavBarStyle = styled.div`
   width: 100vw;
   height: 8vh;
