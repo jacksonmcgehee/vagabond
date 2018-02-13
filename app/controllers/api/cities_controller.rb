@@ -5,10 +5,18 @@ class Api::CitiesController < ApplicationController
 
   end
 
-  # def show
-    
+  def create
+    @city = City.create!(city_params)
 
-  # end
+      render json: @city
+  end
+
+  def show
+    @city = City.find(params[:id])
+
+    render json: @city
+
+  end
 
   # def destroy
 
@@ -17,5 +25,10 @@ class Api::CitiesController < ApplicationController
   # def update
 
   # end
+
+  private
+    def city_params
+        params.require(:city).permit(:name, :photo_url, :summary, :latitude, :longitude, :state, :country, :nickname, :population, :city_type)
+    end
   
 end
