@@ -75,6 +75,7 @@ export default class CityPage extends Component {
                     deletePost={this.deletePost}
                     /> 
                 </div>
+                <PostList posts={this.state.posts}/> 
             </div>
         )
     }
