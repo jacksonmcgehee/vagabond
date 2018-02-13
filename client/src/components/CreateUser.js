@@ -5,6 +5,7 @@ export default class CreateUser extends Component {
   render() {
     return (
       <div>
+      <FormContainer>
         <FormWrapper action="">
           <h2>User Create Form</h2>
           Name <input type="text" placeholder="Name" required />
@@ -30,8 +31,9 @@ export default class CreateUser extends Component {
             required
             maxlength="120"
           />
-          <input type="submit">Submit</input>
+          {/* <input type="submit">Submit</input> */}
         </FormWrapper>
+      </FormContainer>
       </div>
     );
   }
@@ -67,4 +69,11 @@ textarea {
         background-color:#DDCA7E;
     }
 }
+`
+
+const FormContainer = styled.div`
+display:flex;
+flex-direction: column;
+justify-content:center;
+
 `
