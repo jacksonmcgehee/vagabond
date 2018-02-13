@@ -24,9 +24,12 @@ class Api::CitiesController < ApplicationController
     render status: :ok
   end
 
-  # def update
+  def update
+    @city = City.find(params[:id])
+    @city.update!(city_params)
 
-  # end
+    render json: @city
+  end
 
   private
     def city_params
