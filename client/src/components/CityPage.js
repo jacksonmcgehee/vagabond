@@ -8,7 +8,8 @@ export default class CityPage extends Component {
     state = {
         city: {},
         posts: [],
-        post: {}
+        post: {},
+        addFormShowing: false
     }
 
     componentWillMount = () => {
@@ -31,7 +32,6 @@ export default class CityPage extends Component {
 
     deletePost = async (post) => {
         try {
-            console.log("POST ID: ", post.id)
             const cityId = this.props.match.params.id
             const response = await axios.delete(`/api/cities/${cityId}/posts/${post.id}`)
             this.setState({
@@ -43,17 +43,9 @@ export default class CityPage extends Component {
         }
     }
 
-    // handlePostChange = (event) => {
-    //     event.preventDefault()
-    //     const post = { ...this.state.post }
-    //     post[event.target.name] = event.target.value
-    //     this.setState({ post })
-    // }
 
 
     render() {
-
-
 
         return (
             <div>
@@ -82,7 +74,6 @@ export default class CityPage extends Component {
                     <PostList posts={this.state.posts}
                     deletePost={this.deletePost}
                     /> 
-  
                 </div>
             </div>
         )

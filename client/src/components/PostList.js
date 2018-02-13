@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom'
 
 class PostList extends Component {
+    
 
     render () {
         const postList = this.props.posts.map((post, index) => {

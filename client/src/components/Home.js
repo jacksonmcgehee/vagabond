@@ -25,27 +25,6 @@ class Home extends Component {
         }
     }
 
-    createGarden = async (event) => {
-        event.preventDefault()
-        const payload = {
-            name: this.state.garden.name,
-            address: this.state.garden.address,
-            city: this.state.garden.address,
-            state: this.state.garden.state
-        }
-        const blankForm = {
-            name: '',
-            address: '',
-            city: '',
-            state: ''
-        }
-
-        await axios.post('/api/gardens', payload)
-        await this.getAllGardens()
-        this.setState({ garden: blankForm })
-    }
-
-
 
     render() {
         if (this.state.error) {
