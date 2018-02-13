@@ -1,45 +1,44 @@
 class Api::PostsController < ApplicationController
-  
-  def index
-      @city = City.find(params[:city_id])
-      @posts = City.find(params[:city_id]).posts
+    def index
+        @city = City.find(params[:city_id])
+        @posts = City.find(params[:city_id]).posts
 
-      @response = {city: @city, posts: @posts}
-      
-      render json: @response
-  end
+    @response = {city: @city, posts: @posts}
+    
+    render json: @response
+    end
 
-  def show
-      @city = City.find(params[:city_id])
-      @post = Post.find(params[:id])
+    def show
+        @city = City.find(params[:city_id])
+        @post = Post.find(params[:id])
 
-      @response = {city: @city, post: @post}
+        @response = {city: @city, post: @post}
 
-      render json: @response
-  end
+        render json: @response
+    end
 
-  def create
-      @post = Post.create!(post_params)
+    def create
+        @post = Post.create!(post_params)
 
-      render json: @post
-  end
+        render json: @post
+    end
 
-  def update
-      @post = Post.find(params[:id])
-      @post.update!(post_params)
+    def update
+        @post = Post.find(params[:id])
+        @post.update!(post_params)
 
-      render json: @post
-  end
+        render json: @post
+    end
 
-  def destroy
-      @post = Post.find(params[:id]).destroy
+    def destroy
+        @post = Post.find(params[:id]).destroy
 
-      render status: :ok
-  end
+        render status: :ok
+    end
 
-  private
-  def post_params
-      params.require(:post).permit(:title, :body, :post_photo, :city_id, :user_id, :created_at)
-  end
+    private
+    def post_params
+        params.require(:post).permit(:title, :body, :post_photo, :city_id, :user_id, :created_at)
+    end
 
 end
