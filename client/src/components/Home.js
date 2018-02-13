@@ -29,10 +29,12 @@ class Home extends Component {
         }
         return(
             <div>
-                <h1>All Cities</h1>
+                <h1>Jeans Jams: Travel Edition</h1>
+                <h2>All Cities</h2>
                 {this.state.cities.map(city => (
                     <div key={city.id}>
                         <div>{city.name}</div>
+                        <div><img width="200" src={city.photo_url} alt="picture of city"/></div>
                     </div>
                 ))}
             </div>
