@@ -44,7 +44,6 @@ export default class CityPage extends Component {
     }
 
 
-
     render() {
 
         return (
@@ -71,8 +70,11 @@ export default class CityPage extends Component {
                             <Link to="/"><button>Back to Cities</button></Link>
                         </div>
                     </div>
-                    <PostList posts={this.state.posts} />
                 </div>
+                <PostList 
+                posts={this.state.posts}
+                deletePost={this.deletePost}
+                /> 
             </div>
         )
     }
