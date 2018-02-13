@@ -4,9 +4,39 @@ body {
   font-family: sans-serif;
 }
 
+.header-title {
+  color: purple;
+  font-size: 24px;
+  margin-left: 20px;
+}
+
 .home-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.city-preview {
+  width: 60vw;
+  height: 400px;
+  margin: 15px auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.city-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFC476;
+  font-size: 60px;
+}
+
+.city-img {
+  top: 50%;
+  /* left: 50%; */
+  transform: translate(0, -25%);
 }
