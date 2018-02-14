@@ -19,7 +19,7 @@ class PostList extends Component {
         })
         
         return(
-            <div>
+            <div className="test">
                 {postList}
             </div>
         )
