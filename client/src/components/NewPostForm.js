@@ -7,6 +7,9 @@ function NewPostForm(props) {
 
             <div>
                 <form onSubmit={props.createNewPost}>
+                    {/* <div>
+                        <input value="Jackson"/>
+                    </div> */}
                     <div>
                         <label htmlFor="title">Title: </label>
                     </div>
