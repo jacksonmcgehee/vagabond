@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class componentName extends Component {
+class NewCity extends Component {
     state = {
         newCity: {}
     }
@@ -30,9 +30,6 @@ class componentName extends Component {
             <div>
                 <div>
                 <form onSubmit={this.addNewCity}>
-                    {/* <div>
-                        <input value="Jackson"/>
-                    </div> */}
                     <div>
                         <label >Name: </label>
                         <input onChange={this.handleNewCityChange} name="name" value={this.state.newCity.name} />
@@ -65,6 +62,14 @@ class componentName extends Component {
                         <label >City Type: </label>
                         <input onChange={this.handleNewCityChange} name="city_type" value={this.state.newCity.city_type} />
                     </div>
+                    <div>
+                        <label >Latitude: </label>
+                        <input onChange={this.handleNewCityChange} name="latitude" value={this.state.newCity.latitude} />
+                    </div>
+                    <div>
+                        <label >Longitude: </label>
+                        <input onChange={this.handleNewCityChange} name="longitude" value={this.state.newCity.longitude} />
+                    </div>
 
                     <div>
                         <input type="submit" value="Submit" />
@@ -78,4 +83,4 @@ class componentName extends Component {
     }
 }
 
-export default componentName;
+export default NewCity

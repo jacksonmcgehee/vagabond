@@ -54,6 +54,10 @@ class AdminCrud extends Component {
       })
     }
 
+    // updateCity = (updatedCity) => {
+    //     axios.put(`/api/cities/${}`)
+    // }
+
     deleteCity = async (city) => {
         try {
             
@@ -74,6 +78,7 @@ class AdminCrud extends Component {
                 {this.state.cities.map(city => (
                         <div key={city.id}  >
                             <SingleCity 
+                            city={city}
                             name={city.name}
                             id={city.id}
                             deleteCity={this.deleteCity}/>
