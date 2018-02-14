@@ -1,4 +1,5 @@
 class Api::PostsController < ApplicationController
+    
     def index
         @city = City.find(params[:city_id])
         @posts = City.find(params[:city_id]).posts
@@ -6,6 +7,7 @@ class Api::PostsController < ApplicationController
     @response = {city: @city, posts: @posts}
     
     render json: @response
+
     end
 
     def show
@@ -33,7 +35,6 @@ class Api::PostsController < ApplicationController
     def destroy
         @post = Post.find(params[:id]).destroy
         @posts = City.find(params[:city_id]).posts
-
         render json: @posts
     end
 
