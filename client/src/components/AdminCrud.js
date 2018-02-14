@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import NewCity from './NewCity'
+import SingleCity from './SingleCity';
 
 class AdminCrud extends Component {
     state = {
         error: '',
-        cities: []
+        cities: [],
+        isOpenAddForm: false
     }
     componentWillMount(){
         this.fetchCities();
@@ -24,18 +27,70 @@ class AdminCrud extends Component {
         }
     }
 
+    toggleAddCityForm = () => {
+        const isOpenAddForm = !this.state.isOpenAddForm
+        this.setState({
+            isOpenAddForm
+        })
+    }
+
+    
+
+    // resetForm = () => {
+
+    // }
+
+    addCity = (newCity) => {
+        
+        console.log('This is newCity from the main call: ', newCity)
+        
+        axios.post(`/api/cities`, {
+            city: newCity
+        }).then((res) => {
+            
+            const cities = [...this.state.cities]
+            cities.push(res.data)
+            this.setState({cities: cities, isOpenAddForm: false})
+      })
+    }
+
+    deleteCity = async (city) => {
+        try {
+            
+            const response = await axios.delete(`/api/cities/${city}`)
+            this.setState({
+                cities: response.data
+            })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
 
     render() {
         return (
             <div>
                 {this.state.cities.map(city => (
                         <div key={city.id}  >
-                            <div >{city.name}</div>
+                            <SingleCity 
+                            name={city.name}
+                            id={city.id}
+                            deleteCity={this.deleteCity}/>
                         </div>
                 ))}
+                <button onClick={this.toggleAddCityForm}>
+                                    Add New City
+                                </button>
+                {
+                    this.state.isOpenAddForm ?
+                        <NewCity addCity={this.addCity} /> : null
+                }
+                
             </div>
         )
     }
 }
 
 export default AdminCrud
+

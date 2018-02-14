@@ -7,6 +7,10 @@ import CityPage from './components/CityPage'
 import NavBar from './styled-components/NavBar'
 import AdminCrud from './components/AdminCrud'
 
+import UserSign from './components/UserSignIn'
+import CreateUser from './components/CreateUser';
+
+
 class App extends Component {
 
 
@@ -19,6 +23,10 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/cities/:id" component={CityPage} />
             <Route exact path="/adminpagecoolstuff" component={AdminCrud} />
+            <Route exact path="/signin" component={UserSign} />
+            <Route exact path="/createuser" component={CreateUser} />
+            {/* <Route exact path="/cities/:id" component={CityPage} /> */}
+            {/* <Route exact path="/jeansjams-admin" component={AdminPage} /> */}
           </Switch>
         </Router>
       </div>

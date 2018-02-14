@@ -2,25 +2,30 @@ import React, {Component} from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 
-class PostList extends Component {
+import SinglePost from './SinglePost'
 
-    render () {
-        const postList = this.props.posts.map((post) => {
-            return (
-                <div>
-                    <img width="200" src={post.post_photo} alt="" />
-                    <div>{post.title}</div>
-                    <div>{post.body}</div>
-                </div>
-            )
-        })
+const PostList = (props) => {
         
         return(
             <div>
-                {postList}
+                {
+                props.posts.map((post) => {
+                    return (
+                        <div key={post.id}>
+                            <SinglePost
+                            post_photo={post.post_photo}
+                            title={post.title}
+                            body={post.body}
+                            post={post}
+                            deletePost={props.deletePost}/>
+                        </div>
+                    )
+                })
+                }
+                <SinglePost />
             </div>
         )
-    }
+    
 }
 
 export default PostList
