@@ -44,6 +44,19 @@ export default class CityPage extends Component {
         }
     }
 
+
+    deletePost = async (post) => {
+        try {
+            const cityId = this.props.match.params.id
+            const response = await axios.delete(`/api/cities/${cityId}/posts/${post}`)
+            this.setState({
+                posts: response.data
+            })
+        }
+        catch (err) {
+            console.log(err)
+        }
+      
     toggleNewPostForm = () => {
         const newPostFormShowing = !this.state.newPostFormShowing
         this.setState({
@@ -137,10 +150,12 @@ export default class CityPage extends Component {
                         </div>
                     </div>
                 </div>
-                <PostList
-                    posts={this.state.posts}
-                    deletePost={this.deletePost}
-                />
+          
+                <PostList 
+                posts={this.state.posts}
+                deletePost={this.deletePost}/> 
+
+
             </div>
         )
     }
