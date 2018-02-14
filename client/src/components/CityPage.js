@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 import Post from './Post'
 import PostList from './PostList'
 
-
 export default class CityPage extends Component {
     state = {
         city: {},
-        posts: []
+        posts: [],
+        post: {},
+        addFormShowing: false
     }
 
     componentWillMount = () => {
@@ -29,8 +30,18 @@ export default class CityPage extends Component {
         }
     }
 
-    // getAllPosts = () => {
-    // }
+    deletePost = async (post) => {
+        try {
+            const cityId = this.props.match.params.id
+            const response = await axios.delete(`/api/cities/${cityId}/posts/${post.id}`)
+            this.setState({
+                posts: response.data
+            })
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
 
     deletePost = async (post) => {
         try {
@@ -47,8 +58,6 @@ export default class CityPage extends Component {
 
 
     render() {
-
-
 
         return (
             <div className="container" >
