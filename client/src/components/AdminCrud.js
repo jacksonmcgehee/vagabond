@@ -83,7 +83,9 @@ class AdminCrud extends Component {
 
     render() {
         return (
-            <div>
+            <div className="admin-body" >
+                
+                <div className="admin-city-list-side" >
                 {this.state.cities.map(city => (
                         <div key={city.id}  >
                             <SingleCity 
@@ -97,14 +99,16 @@ class AdminCrud extends Component {
                             />
                         </div>
                 ))}
-                <button onClick={this.toggleAddCityForm}>
-                                    Add New City
+                </div>
+                <div className="admin-new-city-side" >
+                <button className="admin-page-button apb-n" onClick={this.toggleAddCityForm}>
+                                    New City
                                 </button>
                 {
                     this.state.isOpenAddForm ?
                         <NewCity addCity={this.addCity} /> : null
                 }
-                
+                </div>
             </div>
         )
     }

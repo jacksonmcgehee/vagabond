@@ -23,10 +23,10 @@ class SingleCity extends Component {
     render() {
     
     return(
-        <div >
-            <div>{this.props.name}</div>
-            <button type="submit" onClick={this.toggleEditCityForm}>Edit</button>
-            <button type="submit" onClick={this.handleClick}>Delete</button>
+        <div className="admin-city-block" >
+            <div className="admin-city-name" >{this.props.name}</div>
+            <button className="admin-page-button apb-e" type="submit" onClick={this.toggleEditCityForm}>Edit</button>
+            <button className="admin-page-button apb-d" type="submit" onClick={this.handleClick}>Delete</button>
             {
                 this.state.isOpenEditCity ?
                     <EditCity 
