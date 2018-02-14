@@ -11,17 +11,17 @@ function NewPostForm(props) {
                         <label htmlFor="title">Title: </label>
                     </div>
                     <div>
-                        <input onChange={props.handlePostChange} name="title" type="text" value={props.post.title} />
+                        <input onChange={props.handlePostChange} name="title" value={props.post.title} placeholder="test" />
                     </div>
                     <div>
                         <label htmlFor="body">Description: </label>
                     </div>
                     <div>
-                        <input onChange={props.handlePostChange} name="body" type="text" value={props.post.body} />
+                        <input onChange={props.handlePostChange} name="body" value={props.post.body} placeholder="test"/>
                     </div>
 
                     <div>
-                        <button>Submit</button>
+                        <input type="submit" value="Submit" />
                     </div>
 
                 </form>

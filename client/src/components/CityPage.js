@@ -55,7 +55,7 @@ export default class CityPage extends Component {
         event.preventDefault()
         const post = { ...this.state.post }
         post[event.target.name] = event.target.value
-        this.setState({ post })
+        this.setState({ post: post, })
     }
 
     createNewPost = async (event) => {
