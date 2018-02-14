@@ -3,13 +3,14 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Post from './Post'
 import PostList from './PostList'
+import NewPostForm from './NewPostForm'
 
 export default class CityPage extends Component {
     state = {
         city: {},
         posts: [],
         post: {},
-        addFormShowing: false
+        newPostFormShowing: false
     }
 
     componentWillMount = () => {
@@ -43,6 +44,7 @@ export default class CityPage extends Component {
         }
     }
 
+
     deletePost = async (post) => {
         try {
             const cityId = this.props.match.params.id
@@ -54,6 +56,45 @@ export default class CityPage extends Component {
         catch (err) {
             console.log(err)
         }
+      
+    toggleNewPostForm = () => {
+        const newPostFormShowing = !this.state.newPostFormShowing
+        this.setState({
+            newPostFormShowing
+        })
+    }
+
+    handlePostChange = (event) => {
+        event.preventDefault()
+        const post = { ...this.state.post }
+        post[event.target.name] = event.target.value
+        this.setState({ post: post, })
+    }
+
+    createNewPost = async (event) => {
+        event.preventDefault()
+        const cityId = this.props.match.params.id
+        const payload = {
+            title: this.state.post.title,
+            body: this.state.post.body
+        }
+        const blankForm = {
+            title: '',
+            body: ''
+        }
+        await axios.post(`/api/cities/${this.props.match.params.id}/posts`, payload)
+        await this.getCity()
+        this.setState({
+            addFormShowing: false,
+            user: blankForm
+        })
+    }
+
+    toggleNewPostForm = () => {
+        const newPostFormShowing = !this.state.newPostFormShowing
+        this.setState({
+            newPostFormShowing
+        })
     }
 
 
@@ -82,11 +123,39 @@ export default class CityPage extends Component {
                         <div>
                             <Link to="/"><button>Back to Cities</button></Link>
                         </div>
+
+                        <div>
+                            <div>
+                                <button onClick={this.toggleNewPostForm}>
+                                    Add New Post
+                                </button>
+                            </div>
+                            <div>
+                                {
+                                    this.state.newPostFormShowing ?
+                                        <div>
+                                            <NewPostForm
+                                                handlePostChange={this.handlePostChange}
+                                                post={this.state.post}
+                                                createNewPost={this.createNewPost}
+                                            />
+
+                                        </div>
+                                        : null
+                                }
+                            </div>
+
+
+
+                        </div>
                     </div>
                 </div>
+          
                 <PostList 
                 posts={this.state.posts}
                 deletePost={this.deletePost}/> 
+
+
             </div>
         )
     }

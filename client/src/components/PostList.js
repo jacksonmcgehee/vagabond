@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 import SinglePost from './SinglePost'
 
 const PostList = (props) => {
-
         
         return(
             <div>
