@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 import Home from './components/Home'
 import CityPage from './components/CityPage'
 import NavBar from './styled-components/NavBar'
+import AdminCrud from './components/AdminCrud'
 
 class App extends Component {
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/cities/:id" component={CityPage} />
+            <Route exact path="/adminpagecoolstuff" component={AdminCrud} />
           </Switch>
         </Router>
       </div>
