@@ -32,8 +32,9 @@ class Api::PostsController < ApplicationController
 
     def destroy
         @post = Post.find(params[:id]).destroy
+        @posts = City.find(params[:city_id]).posts
 
-        render status: :ok
+        render json: @posts
     end
 
     private
