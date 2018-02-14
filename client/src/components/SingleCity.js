@@ -30,6 +30,8 @@ class SingleCity extends Component {
             {
                 this.state.isOpenEditCity ?
                     <EditCity 
+                    updateCity={this.props.updateCity}
+                    toggleEditCityForm={this.toggleEditCityForm}
                     city={this.props.city}/>  : null
             }
         </div>

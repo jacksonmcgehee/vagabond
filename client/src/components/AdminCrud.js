@@ -54,9 +54,18 @@ class AdminCrud extends Component {
       })
     }
 
-    // updateCity = (updatedCity) => {
-    //     axios.put(`/api/cities/${}`)
-    // }
+    updateCity = (updatedCity) => {
+        console.log(updatedCity)
+        console.log('This is the city id: ', updatedCity.id)
+        const city_id = updatedCity.id
+        axios.put(`/api/cities/${city_id}`, {
+            city: updatedCity
+        }).then(() => {
+            // console.log('res.data: ', res.data)
+            // this.setState({cities: res.data.city})
+            this.componentWillMount()
+        })
+    }
 
     deleteCity = async (city) => {
         try {
@@ -81,7 +90,11 @@ class AdminCrud extends Component {
                             city={city}
                             name={city.name}
                             id={city.id}
-                            deleteCity={this.deleteCity}/>
+                            deleteCity={this.deleteCity}
+                            updateCity={this.updateCity}
+                            // isOpenEditCity={this.state.isOpenEditCity}
+                            // toggleEditCityForm={this.toggleEditCityForm}
+                            />
                         </div>
                 ))}
                 <button onClick={this.toggleAddCityForm}>

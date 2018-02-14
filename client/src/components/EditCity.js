@@ -10,6 +10,7 @@ class EditCity extends Component {
             ...this.state.updatedCity
         }
 
+        updatedCity.id = this.props.city.id
         updatedCity.name = this.props.city.name
         updatedCity.nickname = this.props.city.nickname
         updatedCity.photo_url = this.props.city.photo_url
@@ -37,7 +38,8 @@ class EditCity extends Component {
 
     editCity = (event) => {
         event.preventDefault()
-        this.props.editCity(this.state.updatedCity)
+        this.props.updateCity(this.state.updatedCity)
+        this.props.toggleEditCityForm()
     }
 
 
@@ -45,10 +47,10 @@ class EditCity extends Component {
         return (
             <div>
                 <div>
-                <form onSubmit={this.addNewCity}>
+                <form onSubmit={this.editCity}>
                     <div>
                         <label >Name: </label>
-                        <input onChange={this.handleEditCityChange} name="name" value={this.state.updatedCity.name} />
+                        <input  onChange={this.handleEditCityChange} name="name" value={this.state.updatedCity.name} />
                     </div>
                     <div>
                         <label >Nickname: </label>
