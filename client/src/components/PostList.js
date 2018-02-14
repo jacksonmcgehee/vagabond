@@ -12,6 +12,7 @@ class PostList extends Component {
                     <img width="200" src={post.post_photo} alt="" />
                     <div>{post.title}</div>
                     <div>{post.body}</div>
+                    
                     <button type="submit" onClick={() => this.props.deletePost(post)}>Delete</button>
                 </div>
             )
