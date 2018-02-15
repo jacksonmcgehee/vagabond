@@ -57,7 +57,7 @@ export default class CityPage extends Component {
             console.log(err)
         }
     }
-
+    
     toggleNewPostForm = () => {
         const newPostFormShowing = !this.state.newPostFormShowing
         this.setState({
@@ -150,7 +150,6 @@ export default class CityPage extends Component {
                 <PostList
                     posts={this.state.posts}
                     deletePost={this.deletePost} />
-
 
             </div>
         )
